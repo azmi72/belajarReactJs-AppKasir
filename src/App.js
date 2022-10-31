@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import { IniNavbar } from './components';
+import Home from './pages/Home';
+import Sukses from './pages/Sukses'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <IniNavbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/sukses" element={<Sukses/>}/>
+          </Routes>
+        </main>
+      </BrowserRouter>
+    )
+  }
 }
 
-export default App;
+export default App
